@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html><head>  
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />  
+    <title>Hello World</title>  
+  
+    <script id='sap-ui-bootstrap' 
+        src='resources/sap-ui-core.js'  
+        data-sap-ui-theme='sap_bluecrystal'  
+        data-sap-ui-libs='sap.m'></script>   
+  
+<script>  
+   var app = new sap.m.App("myApp",{initialPage:"page1"});
+
+   var page1 = new sap.m.Page("page1",{
+   		title:"initial Page",
+   		content: new sap.m.Button({
+   			text:"Click Here!",
+   			press: function(){
+   				app.to("page2");
+   			}
+   		})
+
+   });
+
+   var page2 = new sap.m.Page("page2",{
+   		title:"Second Page",
+   		showNavButton:true,
+   		navButtonPress: function(){
+   			app.back();
+   		},
+   		content: new sap.m.Text({text:"My First SAPUI5 Mobile App"})
+   });
+
+
+   app.addPage(page1).addPage(page2);
+   app.placeAt("content");
+
+</script>
+
+</head>
+<body class='sapUiBody'>
+    <div id='content'></div>
+</body>
+</html>
